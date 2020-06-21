@@ -1961,6 +1961,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38232,11 +38244,9 @@ var render = function() {
     [
       _c("div", { staticClass: "col-12" }, [
         _c("div", { staticClass: "row" }, [
-          _vm._m(0),
-          _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-12 col-md-6" },
+            { staticClass: "col-12 px-5 col-md-6" },
             [
               _c("qrcode-stream", {
                 staticClass: "qr-code",
@@ -38244,9 +38254,13 @@ var render = function() {
               })
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _vm._m(0)
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _vm._m(1)
     ]
   )
 }
@@ -38257,17 +38271,73 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "col-12 col-md-6 text-center align-self-center" },
+      {
+        staticClass: "col-12 px-5 py-3 col-md-6 text-center align-self-center"
+      },
       [
-        _c("h2", { staticClass: "font-weight-bold" }, [
-          _vm._v("Welcome to Order App!")
-        ]),
+        _c("h2", { staticClass: "font-weight-bold" }, [_vm._v("Welcome!")]),
         _vm._v(" "),
         _c("p", { staticClass: "text-muted" }, [
           _vm._v("Scan QR Code on Table Reserved by you to order")
-        ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "btn-group btn-block btn-md-block",
+            attrs: { role: "group", "aria-label": "Basic example" }
+          },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "d-none d-md-inline-block btn btn-primary",
+                attrs: { type: "button" }
+              },
+              [_vm._v("Get Started")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "d-none d-md-inline-block btn btn-dark",
+                attrs: { type: "button" }
+              },
+              [_vm._v("Have Account ?")]
+            )
+          ]
+        )
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-md-none fixed-bottom shadow-lg" }, [
+      _c("div", { staticClass: "p-3 bg-white" }, [
+        _c(
+          "div",
+          {
+            staticClass: "btn-group btn-block btn-md-block",
+            attrs: { role: "group", "aria-label": "Basic example" }
+          },
+          [
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "button" } },
+              [_vm._v("Get Started")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-dark", attrs: { type: "button" } },
+              [_vm._v("Have Account ?")]
+            )
+          ]
+        )
+      ])
+    ])
   }
 ]
 render._withStripped = true

@@ -5,3 +5,9 @@
 .qr-code {
     height: 300px !important;
 }
+
+@media screen and (min-width: 768px) {
+    .btn-md-block {
+        width: auto !important;
+    }
+}
