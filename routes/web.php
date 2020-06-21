@@ -13,11 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('customer/{any}', 'CustomerController@index')->where('any', '.*');
+Route::get('{any}', 'CustomerController@index')->where('any', '.*');
+
+Route::prefix('waiter')->group(function () {
+    Route::prefix('tables')->group(function () {
+        Route::get('/', 'TableController@index');
+    });
+});

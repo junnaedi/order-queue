@@ -1,0 +1,36 @@
+<template>
+    <div class="container">
+        <div class="row h-100 justify-content-center align-content-center">
+            <qrcode-stream @decode="onDecode"></qrcode-stream>
+        </div>
+        <div class="top-qr-code row h-100 w-100 position-absolute justify-content-center">
+            <div class="row align-self-center">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="text-primary">Scan QR Code</h5>
+                            <p class="m-0 mt-n2">Place your QR Code here</p>
+                            <div class="py-5"></div>
+                            <p class="m-0">Still not working?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+
+export default {
+    data: function () {
+        return {
+            qrCodes: ''
+        }
+    },
+    methods: {
+        onDecode (decodedString) {
+            this.$data.message = decodedString;
+        }
+    }
+}
+</script>
