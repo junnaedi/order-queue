@@ -16,7 +16,7 @@ class CreateTablesTable extends Migration
         Schema::create('tables', function (Blueprint $table) {
             $table->id();
             $table->string('tableName');
-            $table->string('tableCode');
+            $table->string('tableCode')->nullable();
         });
     }
 

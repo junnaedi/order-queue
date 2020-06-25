@@ -20,10 +20,12 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('{any}', 'CustomerController@index')->where('any', '.*');
+Route::get('customer/{any}', 'CustomerController@index')->where('any', '.*');
 
 Route::prefix('waiter')->group(function () {
     Route::prefix('tables')->group(function () {
         Route::get('/', 'TableController@index');
+        Route::post('load_data', 'TableController@loadData');
+        Route::post('insert', 'TableController@insert');
     });
 });
