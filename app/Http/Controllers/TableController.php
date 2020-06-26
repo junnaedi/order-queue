@@ -98,4 +98,22 @@ class TableController extends Controller
 
         return response()->json($response);
     }
+
+    public function delete($id) {
+        $delete = Table::where('id', $id)->delete();
+
+        if ($delete) {
+            $response = [
+                'status'  => 200,
+                'message' => 'data has been deleted!'
+            ];
+        } else {
+            $response = [
+                'status'  => 500,
+                'message' => 'internal server error!'
+            ];
+        }
+
+        return response()->json($response);
+    }
 }

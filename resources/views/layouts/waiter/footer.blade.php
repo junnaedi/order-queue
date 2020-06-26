@@ -21,6 +21,7 @@
     <!-- JS Libraies -->
     <script src="{{ asset('assets/modules/sticky-kit.js') }}"></script>
     <script src="{{ asset('assets/modules/nprogress/nprogress.js') }}"></script>
+    <script src="{{ asset('assets/modules/qrcode.js') }}"></script>
 
     <!-- Page Specific JS File -->
 

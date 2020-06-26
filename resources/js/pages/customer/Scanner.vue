@@ -44,7 +44,7 @@ export default {
     methods: {
         onDecode (decodedString) {
             this.$data.message = decodedString;
-            this.$router.push('customer/order');
+            this.$router.push('order');
         },
         async qrInit (promise) {
             // show loading indicator

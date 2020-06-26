@@ -28,5 +28,6 @@ Route::prefix('waiter')->group(function () {
         Route::post('load_data', 'TableController@loadData');
         Route::post('insert', 'TableController@insert');
         Route::post('update/{id}', 'TableController@update');
+        Route::get('delete/{id}', 'TableController@delete');
     });
 });
