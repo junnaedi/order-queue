@@ -34,6 +34,7 @@ class TableController extends Controller
         // validate the request
         $validate = Validator::make($request->all(), [
             'tableName' => 'required',
+            'tableCode' => 'required',
         ]);
         // if validate fails
         if ($validate->fails()) {
@@ -42,6 +43,7 @@ class TableController extends Controller
             // handle request
             $insert = Table::insert([
                 'tableName' => $request->input('tableName'),
+                'tableCode' => $request->input('tableCode'),
             ]);
 
             if ($insert) {
@@ -66,6 +68,7 @@ class TableController extends Controller
         // validate the request
         $validate = Validator::make($request->all(), [
             'tableName' => 'required',
+            'tableCode' => 'required',
         ]);
         // if validate fails
         if ($validate->fails()) {
@@ -75,6 +78,7 @@ class TableController extends Controller
             $update = Table::where('id', $id)
                         ->update([
                             'tableName' => $request->input('tableName'),
+                            'tableCode' => $request->input('tableCode'),
                         ]);
 
             if ($update) {

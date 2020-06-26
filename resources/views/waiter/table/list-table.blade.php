@@ -44,6 +44,15 @@
                       <input type="hidden" name="tableId" id="tableId">
                       <input type="text" id="tableName" name="tableName" class="form-control" placeholder="name of the table">
                     </div>
+                    <div class="form-group">
+                      <label>Table Code</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">TBL -</span>
+                        </div>
+                        <input type="text" id="tableCode" name="tableCode" class="form-control" placeholder="code of the table">
+                      </div>
+                    </div>
                 </div>
             </div>
         </form>
@@ -70,9 +79,10 @@
         });
     });
 
-    function showModal(id, data) {
+    function showModal(id, tableName, tableCode) {
         $('#tableId').val(id);
-        $('#tableName').val(data);
+        $('#tableName').val(tableName);
+        $('#tableCode').val(tableCode);
         $('#showModal').modal('show');
     }
 
@@ -88,9 +98,10 @@
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			},
 			success: function(response) {
+                console.log(response);
                 $('#thetable').empty();
                 $.each(response.data, function (index, val) {
-                    $('#thetable').append('<div class="col-3"><div class="card card-primary animate__animated animate__fadeIn animate__faster"><div class="card-header"><h4>'+ val.tableName +'</h4><div class="card-header-action"><button onclick="showModal('+val.id+',\''+val.tableName+'\')" class="btn btn-outline-success btn-sm float-right">Edit</button></div></div><div class="card-body text-center"><p class="display-3"><i class="fa fa-utensils"></i></p><button class="btn btn-outline-primary btn-sm">Generate QR Code</button></div></div></div>');
+                    $('#thetable').append('<div class="col-3"><div class="card card-primary animate__animated animate__fadeIn animate__faster"><div class="card-header"><h4>'+ val.tableName +'</h4><div class="card-header-action"><button onclick="showModal('+val.id+',\''+val.tableName+'\',\''+val.tableCode+'\')" class="btn btn-outline-success btn-sm float-right">Edit</button></div></div><div class="card-body text-center"><p class="display-3"><i class="fa fa-utensils"></i></p><button class="btn btn-outline-primary btn-sm">Generate QR Code</button></div></div></div>');
                 });
                 NProgress.done();
 			}
@@ -111,7 +122,7 @@
 			},
 			success: function(response) {
                 $('#formData').trigger('reset');
-                $('#thetable').append('<div class="col-3"><div class="card card-primary animate__animated animate__fadeIn animate__faster"><div class="card-header"><h4>'+ response.data.tableName +'</h4><div class="card-header-action"><button onclick="showModal('+response.data.id+',\''+response.data.tableName+'\')" class="btn btn-outline-success btn-sm float-right">Edit</button></div></div><div class="card-body text-center"><p class="display-3"><i class="fa fa-utensils"></i></p><button class="btn btn-outline-primary btn-sm">Generate QR Code</button></div></div></div>');
+                $('#thetable').append('<div class="col-3"><div class="card card-primary animate__animated animate__fadeIn animate__faster"><div class="card-header"><h4>'+ response.data.tableName +'</h4><div class="card-header-action"><button onclick="showModal('+response.data.id+',\''+response.data.tableName+'\',\''+response.data.tableCode+'\')" class="btn btn-outline-success btn-sm float-right">Edit</button></div></div><div class="card-body text-center"><p class="display-3"><i class="fa fa-utensils"></i></p><button class="btn btn-outline-primary btn-sm">Generate QR Code</button></div></div></div>');
                 $('#showModal').modal('hide');
                 NProgress.done();
 			}
